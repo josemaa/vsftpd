@@ -20,7 +20,7 @@
 - Ejecutamos el siguiente comando para comprobar que nos sale el usuario ftp
 ```getent passwd```
 
-<img src=/capturas/instalacion3.png width=600px>
+<img src=/capturas/instalacion7.png width=600px>
 
 
 
