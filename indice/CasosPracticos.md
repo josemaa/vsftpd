@@ -68,76 +68,78 @@
 
 ### 5.-Acceso al servidor FTP: anónimo tiene solo permisos de lectura en su directorio trabajo
 
+* Activamos el usuario Anonymous en /etc/vsftpd.con
+
+<img src=/capturas/vsftpd2.PNG width=600px>
+
+* Creamos archivo en servidor para poder descargar
+
+```touch /srv/ftp/ejemplo.txt```
+
+* Accedemos mediante ftp y comprobamos que podemos bajarlo
+
+<img src=/capturas/vsftpd3.PNG width=600px>
+
+- Nos deja descargar pero no subir
 
 
+### 6.-Acceso al servidor FTP: Anonimo tiene permisos de escritura en sugerencias
 
-
-
-
-### 6.-Control de Acceso: A la web1 se podrá acceder tanto desde la red externa como interna, a la web2, solo de la interna.
-
- * Editamos el fichero de configuracion de la web2 añadiendo las siguientes lineas:
-   Fichero ----> ```/etc/nginx/sites-avaible/web2```
-   
-   ```location / {
-		# First attempt to serve request as file, then
-		# as directory, then fall back to displaying a 404.
-		try_files $uri $uri/ =404;
-		allow 192.168.3.0/24;
-		deny all;
-	}```
+ * Primero cambiamos el dueño de /srv/ftp y creamos carpeta dentro
  
-  <img src=/capturas/ControlAcceso.png width=600px>
-  
-  * Reiniciamos el servicio
-  * Comprobamos
-     - Red Externa
-
- <img src=/capturas/Redexterna.png width=600px>
+ ```chown ftp:nogroup /srv/ftp```
+ ```mkdir /srv/ftp/sugerencias```
  
-   -  Red Interna
-
- <img src=/capturas/Redinterna.PNG width=600px>
+ * Cambiamos permisos para que solo pueda escribir
  
+ ```chown ftp:nogroup /srv/ftp/sugerencias```
+ ```chmod u-w /srv/ftp```
  
- ### 7.-Autentificacion Usuario
+ * Configuramos el archivo vsftpd.conf de la siguiente manera: 
  
- **Creamos un directorio web1 que se llame privado y al cual solo pueden acceder usuarios validos**
-
- * Crearemos el directorio ```/var/www/web1/privado```
- 
- ```mkdir privado```
-
-<img src=/capturas/autentificacion.png width=600px>
-
-
-* Añadimos las siguientes lineas en el fichero de configuracion de web1 ```/etc/nginx/sites-avaible/web1```
- 
- 
-<img src=/capturas/autentificacion2.png width=600px>
-
-* Instalamos el paquete apache2-utils
-
- ```apt install apache2-utils```
- 
- * Creamos las credenciales en el fichero del usuario
-
- ```cd /etc/nginx```
- ```htpasswd -c -m .htpasswd usuario```
- 
- **Nuestro usuario seria, usuario y el archivo que contiene todo es .htpasswd.
- -c ---> crea un fichero
- -m ---> obliga la encriptacion MD5**
- 
-  <img src=/capturas/autentificacion3.png width=600px>
- 
- - Reiniciamos servicio
-  ```systemctl restart nginx.service```
+ <img src=/capturas/vsftpd4.PNG width=600px>
  
  * Comprobamos
  
- <img src=/capturas/autentificacion4.png width=600px>
+  <img src=/capturas/vsftpd5.PNG width=600px>
+  
+  - Se puede subir pero nos deniega al descargar
  
+ 
+ ### 7.-Creación usuarios virtuales
+ 
+ * Instalamos los siguientes paquetes para poder crear usuarios
+ 
+ ```apt install apache2-utils```
+ 
+ * Añadimos las siguientes lineas al archivo de configuracion
+ 
+  <img src=/capturas/vsftpd6.PNG width=600px>
+  
+ * Creamos la carpeta donde se guardalan la lista de usuarios virtuales y usuarios 
+ ```mkdir vsftpd```
+ ```httpasswd -cd ./ftpd.passwd user```
+ 
+ * Nos dirigmos al siguiente archivo ```/etc/pam.d/vsftpd``` y escribimos lo siguiente
+  
+   <img src=/capturas/vsftpd7.PNG width=600px>
+   
+ * Creamos el usuario virtual
+  useradd --home /home/vsftpd --gid nogroup -m --shell /bin/false vsftpd
+  
+  - Creamos directorio y entramos
+  ```mkdir /etc/vsftpd_user_conf```
+  ```cd/etc/vsftpd_user_conf```
+   
+ * Creamos el siguiente archivo de configuracion en ```/etc/vsftpd_user_conf```
+   
+    <img src=/capturas/vsftpd8.PNG width=600px>
+ 
+ * Creamos la ruta donde podra accedir el usuario y comprobamos
+ 
+ ```cd /srv/ftp```
+ ```mkdir user```
+
 ### 8.-Red interna no pide autentificacion y externa si
 
 * Añadimos las siguientes lineas al codigo y comprobamos:
