@@ -7,12 +7,11 @@ Anteriormente utilizaban proftpd como servidor FTP. Se están planteando migrar 
 Tu tarea consiste en realizar un estudio de vsftpd y realizar un informe.
 
 ## ÍNDICE
-1. [Introducción]()
-2. [Comparativa con proftpd]()
-3. [Esquema de red]()
-4. [Instalación]()
-5. [Casos prácticos]()
-6. [Referencias]()
+1. [Introducción](https://github.com/josemaa/vsftpd/blob/main/indice/Introduccion.md)
+2. [Comparativa con proftpd](https://github.com/josemaa/vsftpd/blob/main/indice/Comparativa.md)
+3. [Esquema de red](https://github.com/josemaa/vsftpd/blob/main/indice/EsquemaRed.md)
+4. [Instalación](https://github.com/josemaa/vsftpd/blob/main/indice/Instalacion.md)
+5. [Casos prácticos](https://github.com/josemaa/vsftpd/blob/main/indice/CasosPracticos.md)
 
 ## REFERENCIAS
 
