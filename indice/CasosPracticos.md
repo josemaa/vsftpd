@@ -64,7 +64,7 @@
 - reiniciamos
  ```systemctl restart vsftpd```
  
- <img src=/capturas/vsftpd.PNG width=600px>
+ <img src=/capturas/vsftpd1.PNG width=600px>
 
 ### 5.-Acceso al servidor FTP: anónimo tiene solo permisos de lectura en su directorio trabajo
 
