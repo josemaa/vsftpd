@@ -6,7 +6,7 @@
   
 * Aqui le mostramos el esquema de red que tendra nuestro proyecto
 
-   ![captura4.PNG](/capturas/captura4.PNG)
+   ![captura4.png](/capturas/captura4.png)
    
    
    
