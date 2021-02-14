@@ -19,7 +19,7 @@
 
 - Dispone de directorios raíz anónimos que no requieren ninguna estructura de directorio, archivos binarios del sistema u otros archivos del sistema.
 
- -No hay comando SITE EXEC,evitando así, los problemas que puede acarrear en seguridad.
+ - No hay comando SITE EXEC,evitando así, los problemas que puede acarrear en seguridad.
  
  ### Principales caracteristicas vsftpd:
 
