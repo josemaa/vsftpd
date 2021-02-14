@@ -140,18 +140,28 @@
  ```cd /srv/ftp```
  ```mkdir user```
 
-### 8.-Red interna no pide autentificacion y externa si
+### 8.-Seguridad
 
-* Añadimos las siguientes lineas al codigo y comprobamos:
+* Instalamos el paquete para generar certificado
 
-<img src=/capturas/autentificacion5.png width=600px>
+```apt install openssl```
 
-* Reiniciamos
-
-```systemctl restart nginx.service```
  
+* Generamos certificado rellenando los siguientes datos
+
+  <img src=/capturas/seguridad.PNG width=600px>
+  
+* Configuramos el /etc/vsftpd
+
+<img src=/capturas/seguridad1.PNG width=600px>
  
+ * Reiniciamos
  
+ ```systemctl restart vsftpd.service```
+ 
+ * Comprobamos
+ 
+ <img src=/capturas/seguridad3.PNG width=600px>
  
  
 
