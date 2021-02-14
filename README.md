@@ -15,4 +15,7 @@ Tu tarea consiste en realizar un estudio de vsftpd y realizar un informe.
 
 ## REFERENCIAS
 
- -  [Instalacion vsftpd](https://www.redeszone.net/tutoriales/servidores/vsftpd-configuracion-servidor-ftp/)
+ -  [Configuracion vsftpd](https://www.redeszone.net/tutoriales/servidores/vsftpd-configuracion-servidor-ftp/)
+ -  [Comparativas](https://www.redeszone.net/tutoriales/servidores/mejores-servidores-ftp-ftpes-linux/)
+ -  [Seguridad](https://ubunlog.com/vsftpd-instalar-un-servidor-ftp-ubuntu/)
+ -  [Anonymous](https://www.ionos.es/digitalguide/servidores/configuracion/servidor-ftp-en-ubuntu-instalacion-y-configuracion/)
